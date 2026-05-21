@@ -3,6 +3,10 @@
   "name": "Scryfall API Inspector",
   "version": "1.0.0",
   "description": "Overlay an API link button on every Scryfall card image.",
+  "icons": {
+    "48": "icon.svg",
+    "128": "icon.svg"
+  },
   "content_scripts": [
     {
       "matches": [
