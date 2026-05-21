@@ -1,16 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Dark disc -->
-  <circle cx="64" cy="64" r="60" fill="#14141e"/>
-  <!-- Gold ring border -->
-  <circle cx="64" cy="64" r="60" fill="none" stroke="#e7c84a" stroke-width="4"/>
+  <!-- Brown circle background -->
+  <circle cx="64" cy="64" r="62" fill="#7B5030"/>
 
-  <!-- Card face, straight-on portrait view -->
-  <rect x="30" y="18" width="68" height="92" rx="7" fill="#1e1b2e" stroke="#e7c84a" stroke-width="2.5"/>
+  <!--
+    Five MTG color dots in card-back pentagon order, clockwise from top:
+    White (top), Blue (upper-right), Black (lower-right), Red (lower-left), Green (upper-left)
+    Pentagon center (64,64), vertex radius 38px.
+  -->
+  <circle cx="64"  cy="26"  r="8" fill="#F5F0D8" stroke="#fff" stroke-width="1.5"/> <!-- White  -->
+  <circle cx="100" cy="52"  r="8" fill="#1565C0" stroke="#fff" stroke-width="1.5"/> <!-- Blue   -->
+  <circle cx="86"  cy="95"  r="8" fill="#1A1A1A" stroke="#fff" stroke-width="1.5"/> <!-- Black  -->
+  <circle cx="42"  cy="95"  r="8" fill="#C62828" stroke="#fff" stroke-width="1.5"/> <!-- Red    -->
+  <circle cx="28"  cy="52"  r="8" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/> <!-- Green  -->
 
-  <!-- Horizontal lines (card text), decreasing opacity downward -->
-  <rect x="40" y="32" width="48" height="6"  rx="3"   fill="#e7c84a"/>
-  <rect x="40" y="48" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.80"/>
-  <rect x="40" y="60" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.62"/>
-  <rect x="40" y="72" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.44"/>
-  <rect x="40" y="84" width="30" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.26"/>
+  <!-- JSON indicator -->
+  <text x="64" y="73" font-family="monospace" font-size="22" font-weight="bold"
+        fill="#F5F0D8" text-anchor="middle">{}</text>
 </svg>
