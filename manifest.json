@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Scryfall API Inspector",
+  "version": "1.0.0",
+  "description": "Overlay an API link button on every Scryfall card image.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://scryfall.com/*",
+        "*://*.scryfall.com/*",
+        "*://scryfall.io/*",
+        "*://*.scryfall.io/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
