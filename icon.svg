@@ -1,8 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="22" fill="#14141e"/>
-  <ellipse cx="64" cy="54" rx="34" ry="20" fill="none" stroke="#e7c84a" stroke-width="5"/>
-  <circle cx="64" cy="54" r="11" fill="#e7c84a"/>
-  <circle cx="64" cy="54" r="5" fill="#14141e"/>
-  <text x="64" y="100" font-family="monospace" font-size="26" font-weight="bold"
-        fill="#e7c84a" text-anchor="middle" letter-spacing="2">API</text>
+  <!-- Dark disc -->
+  <circle cx="64" cy="64" r="60" fill="#14141e"/>
+  <!-- Gold ring border -->
+  <circle cx="64" cy="64" r="60" fill="none" stroke="#e7c84a" stroke-width="4"/>
+
+  <!-- Card face, straight-on portrait view -->
+  <rect x="30" y="18" width="68" height="92" rx="7" fill="#1e1b2e" stroke="#e7c84a" stroke-width="2.5"/>
+
+  <!-- Horizontal lines (card text), decreasing opacity downward -->
+  <rect x="40" y="32" width="48" height="6"  rx="3"   fill="#e7c84a"/>
+  <rect x="40" y="48" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.80"/>
+  <rect x="40" y="60" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.62"/>
+  <rect x="40" y="72" width="48" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.44"/>
+  <rect x="40" y="84" width="30" height="4.5" rx="2.25" fill="#e7c84a" opacity="0.26"/>
 </svg>
