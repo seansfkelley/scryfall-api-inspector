@@ -1,9 +1,7 @@
-// Matches: https://cards.scryfall.io/{size}/{face}/{x}/{y}/{uuid}.{ext}
 const CARD_UUID_RE =
   /cards\.scryfall\.io\/[^?#]*\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\.[a-z]+/i;
 
 function cardUuid(img) {
-  // Check both src and data-src (lazy loaders swap these)
   for (const val of [img.src, img.getAttribute("data-src")]) {
     const m = val && val.match(CARD_UUID_RE);
     if (m) return m[1];
@@ -11,16 +9,17 @@ function cardUuid(img) {
   return null;
 }
 
-function wrap(img) {
-  if (img.closest(".sfapi-wrap")) return; // already wrapped
+function attach(img) {
+  if (img.dataset.sfapiDone) return;
   const uuid = cardUuid(img);
   if (!uuid) return;
 
-  const wrapper = document.createElement("span");
-  wrapper.className = "sfapi-wrap";
+  img.dataset.sfapiDone = "1";
 
-  img.parentNode.insertBefore(wrapper, img);
-  wrapper.appendChild(img);
+  // Mark the existing parent as a positioning host — no new wrapper element,
+  // so the flex/grid layout is undisturbed.
+  const parent = img.parentNode;
+  parent.classList.add("sfapi-host");
 
   const link = document.createElement("a");
   link.className = "sfapi-lnk";
@@ -29,11 +28,11 @@ function wrap(img) {
   link.rel = "noopener noreferrer";
   link.textContent = "{}";
   link.addEventListener("click", (e) => e.stopPropagation());
-  wrapper.appendChild(link);
+  parent.appendChild(link);
 }
 
 function scan(root) {
-  (root || document).querySelectorAll("img").forEach(wrap);
+  (root || document).querySelectorAll("img").forEach(attach);
 }
 
 scan();
@@ -43,12 +42,12 @@ new MutationObserver((mutations) => {
     if (m.type === "childList") {
       m.addedNodes.forEach((node) => {
         if (node.nodeType !== 1) return;
-        if (node.tagName === "IMG") wrap(node);
+        if (node.tagName === "IMG") attach(node);
         else if (node.querySelectorAll)
-          node.querySelectorAll("img").forEach(wrap);
+          node.querySelectorAll("img").forEach(attach);
       });
     } else if (m.type === "attributes" && m.target.tagName === "IMG") {
-      wrap(m.target);
+      attach(m.target);
     }
   }
 }).observe(document.body, {
