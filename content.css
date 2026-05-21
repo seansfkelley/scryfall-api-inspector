@@ -5,19 +5,18 @@
 
 .sfapi-lnk {
   position: absolute;
-  top: 6px;
+  bottom: 6px;
   left: 6px;
   display: none;
   z-index: 2147483647;
 
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 1px 5px 3px;
+  border-radius: 6px;
   border: 1px solid #e7c84a;
   background: rgba(20, 20, 30, 0.88);
   color: #e7c84a;
 
-  font: 700 10px/1.6 monospace;
-  letter-spacing: 0.05em;
+  font: 700 16px/1.6 monospace;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
