@@ -9,7 +9,7 @@
   border-radius: 6px;
   border: 1px solid #e7c84a;
   background: rgba(20, 20, 30, 0.88);
-  color: #e7c84a;
+  color: #e7c84a !important; /* !important to get around specificity on tagger.scryfall.com */
 
   font: 700 16px/1.6 monospace;
   text-decoration: none;
@@ -23,5 +23,6 @@
 
 .sfapi-lnk:hover {
   background: #e7c84a;
-  color: #14141e;
+  color: #14141e !important; /* as above, more specific */
+  text-decoration: none;
 }

@@ -10,11 +10,21 @@ function cardUuid(img) {
 }
 
 function attach(img) {
-  if (img.dataset.sfapiDone) return;
-  const uuid = cardUuid(img);
-  if (!uuid) return;
+  if (img.dataset.sfapiDone) {
+    return;
+  }
 
+  // However we exit this function, we don't need to check again.
   img.dataset.sfapiDone = "1";
+
+  if (img.closest(".homepage-collage")) {
+    return;
+  }
+
+  const uuid = cardUuid(img);
+  if (!uuid) {
+    return;
+  }
 
   // Mark the existing parent as a positioning host — no new wrapper element,
   // so the flex/grid layout is undisturbed.

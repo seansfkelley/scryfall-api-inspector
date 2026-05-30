@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Scryfall API Inspector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Overlay an API link button on every Scryfall card image.",
   "icons": {
     "48": "icon.svg",
